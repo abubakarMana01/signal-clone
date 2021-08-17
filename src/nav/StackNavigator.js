@@ -12,7 +12,9 @@ const Stack = createStackNavigator();
 
 const StackNavigator = () => {
   return (
-    <Stack.Navigator initialRouteName="Home">
+    <Stack.Navigator
+      initialRouteName="Home"
+      screenOptions={{headerStyle: {elevation: 1, shadowOpacity: 0}}}>
       <Stack.Screen
         component={HomeScreen}
         name="Home"

@@ -1,4 +1,7 @@
 {
   "name": "app2",
-  "displayName": "app2"
+  "displayName": "app2",
+  "androidNavigationBar": {
+    "backgroundColor": "#000000"
+  }
 }

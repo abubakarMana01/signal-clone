@@ -17,7 +17,10 @@ const StackNavigator = () => {
   return (
     <Stack.Navigator
       initialRouteName="Home"
-      screenOptions={{headerStyle: {elevation: 1, shadowOpacity: 0}}}>
+      screenOptions={{
+        headerStyle: {elevation: 1, shadowOpacity: 0},
+        headerMode: 'float',
+      }}>
       <Stack.Screen
         component={HomeScreen}
         name="Home"
@@ -33,9 +36,11 @@ const StackNavigator = () => {
             </TouchableWithoutFeedback>
           ),
           headerRight: () => (
+            // eslint-disable-next-line react-native/no-inline-styles
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <TouchableWithoutFeedback onPress={() => {}}>
                 <Ionicons
+                  // eslint-disable-next-line react-native/no-inline-styles
                   style={{marginRight: 20}}
                   name="search-outline"
                   size={24}
@@ -44,6 +49,7 @@ const StackNavigator = () => {
               </TouchableWithoutFeedback>
               <TouchableWithoutFeedback onPress={() => {}}>
                 <MaterialCommunityIcons
+                  // eslint-disable-next-line react-native/no-inline-styles
                   style={{marginRight: 10}}
                   name="dots-vertical"
                   size={26}

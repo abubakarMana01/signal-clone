@@ -1,5 +1,11 @@
 import React from 'react';
-import {StyleSheet, View, Text, TouchableHighlight} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableHighlight,
+  ScrollView,
+} from 'react-native';
 
 import SettingItemCards from '../components/SettingsItemCards';
 import {colors} from '../constants';
@@ -18,7 +24,24 @@ const SettingsScreen = () => {
           </View>
         </View>
       </TouchableHighlight>
-      <SettingItemCards />
+
+      <ScrollView>
+        <SettingItemCards text="Account" icon="account-circle-outline" />
+        <SettingItemCards text="Linked Devices" icon="devices" />
+        <View style={styles.separator} />
+        <SettingItemCards text="Appearance" icon="weather-sunny" />
+        <SettingItemCards text="Chats" icon="chat-outline" />
+        <SettingItemCards text="Privacy" icon="lock-outline" />
+        <SettingItemCards text="Data and storage" icon="weather-sunny" />
+        <View style={styles.separator} />
+        <SettingItemCards text="Help" icon="help-circle-outline" />
+        <SettingItemCards text="Invite your friends" icon="email-outline" />
+        <SettingItemCards
+          text="Donate to signal"
+          icon="heart-outline"
+          iconRight="external-link"
+        />
+      </ScrollView>
     </View>
   );
 };
@@ -28,7 +51,6 @@ export default SettingsScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.light,
   },
   profileCard: {
     paddingVertical: 15,
@@ -60,5 +82,10 @@ const styles = StyleSheet.create({
   },
   phone: {
     color: colors.grey,
+  },
+  separator: {
+    borderTopColor: '#eee',
+    borderTopWidth: 2,
+    marginVertical: 20,
   },
 });

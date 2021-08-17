@@ -1,8 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View, Image, TouchableHighlight} from 'react-native';
-
 import {colors} from '../constants';
-
 const ChatCardItem = ({user}) => {
   return (
     <TouchableHighlight

@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Button,
-  FlatList,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {FlatList, StyleSheet, TouchableOpacity, View} from 'react-native';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import ChatCardItem from '../components/ChatCardItem';

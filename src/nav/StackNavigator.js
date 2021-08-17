@@ -3,6 +3,7 @@ import {StyleSheet, Text, TouchableWithoutFeedback, View} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {useNavigation} from '@react-navigation/native';
 
 import SettingsScreen from '../screens/SettingsScreen';
 import HomeScreen from '../screens/HomeScreen';
@@ -11,6 +12,8 @@ import {colors} from '../constants';
 const Stack = createStackNavigator();
 
 const StackNavigator = () => {
+  const navigation = useNavigation();
+
   return (
     <Stack.Navigator
       initialRouteName="Home"
@@ -22,9 +25,12 @@ const StackNavigator = () => {
           headerTitle: 'Signal',
           headerTitleStyle: {fontWeight: '700'},
           headerLeft: () => (
-            <View style={styles.homeHeaderLeft}>
-              <Text style={styles.homeHeaderLeftText}>AM</Text>
-            </View>
+            <TouchableWithoutFeedback
+              onPress={() => navigation.navigate('Settings')}>
+              <View style={styles.homeHeaderLeft}>
+                <Text style={styles.homeHeaderLeftText}>AM</Text>
+              </View>
+            </TouchableWithoutFeedback>
           ),
           headerRight: () => (
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -57,16 +63,19 @@ export default StackNavigator;
 
 const styles = StyleSheet.create({
   homeHeaderLeft: {
-    height: 25,
-    width: 25,
+    height: 27,
+    width: 27,
     backgroundColor: '#d1e0ff',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 12.5,
+    borderRadius: 15,
     marginLeft: 20,
+    borderColor: '#bdd3ff',
+    borderWidth: 1,
   },
   homeHeaderLeftText: {
     color: colors.primary,
     fontSize: 12,
+    fontWeight: '700',
   },
 });

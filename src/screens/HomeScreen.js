@@ -21,10 +21,12 @@ const HomeScreen = () => {
       />
       <View style={styles.iconContainer}>
         <TouchableOpacity
+          activeOpacity={0.8}
           style={{...styles.icon, backgroundColor: colors.light}}>
-          <MaterialCommunityIcons name="camera" color="#787878" size={24} />
+          <MaterialCommunityIcons name="camera" color={colors.grey} size={24} />
         </TouchableOpacity>
         <TouchableOpacity
+          activeOpacity={0.8}
           style={{...styles.icon, backgroundColor: colors.primary}}>
           <MaterialCommunityIcons
             name="pencil"

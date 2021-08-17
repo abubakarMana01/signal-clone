@@ -3,17 +3,19 @@ import {
   StyleSheet,
   View,
   Text,
-  TouchableHighlight,
+  TouchableNativeFeedback,
   ScrollView,
 } from 'react-native';
 
 import SettingItemCards from '../components/SettingsItemCards';
 import {colors} from '../constants';
 
-const SettingsScreen = () => {
+const SettingsScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <TouchableHighlight onPress={() => {}}>
+      <TouchableNativeFeedback
+        background={TouchableNativeFeedback.Ripple('#eee', false)}
+        onPress={() => {}}>
         <View style={styles.profileCard}>
           <View style={styles.profileCardLeft}>
             <Text style={styles.profileCardLeftText}>AM</Text>
@@ -23,22 +25,64 @@ const SettingsScreen = () => {
             <Text style={styles.phone}>+234 808 281 3527</Text>
           </View>
         </View>
-      </TouchableHighlight>
+      </TouchableNativeFeedback>
 
       <ScrollView>
-        <SettingItemCards text="Account" icon="account-circle-outline" />
-        <SettingItemCards text="Linked Devices" icon="devices" />
+        <SettingItemCards
+          text="Account"
+          icon="account-circle-outline"
+          onPress={() => navigation.navigate('Account')}
+        />
+        <SettingItemCards
+          text="Linked Devices"
+          icon="devices"
+          onPress={() => navigation.navigate('Linked Devices')}
+        />
+
         <View style={styles.separator} />
-        <SettingItemCards text="Appearance" icon="weather-sunny" />
-        <SettingItemCards text="Chats" icon="chat-outline" />
-        <SettingItemCards text="Privacy" icon="lock-outline" />
-        <SettingItemCards text="Data and storage" icon="weather-sunny" />
+
+        <SettingItemCards
+          text="Appearance"
+          icon="weather-sunny"
+          onPress={() => navigation.navigate('Appearance')}
+        />
+        <SettingItemCards
+          text="Chats"
+          icon="chat-outline"
+          onPress={() => navigation.navigate('Chats')}
+        />
+        <SettingItemCards
+          text="Notifications"
+          icon="bell-outline"
+          onPress={() => navigation.navigate('Notifications')}
+        />
+        <SettingItemCards
+          text="Privacy"
+          icon="lock-outline"
+          onPress={() => navigation.navigate('Privacy')}
+        />
+        <SettingItemCards
+          text="Data and storage"
+          icon="weather-sunny"
+          onPress={() => navigation.navigate('Data and storage')}
+        />
+
         <View style={styles.separator} />
-        <SettingItemCards text="Help" icon="help-circle-outline" />
-        <SettingItemCards text="Invite your friends" icon="email-outline" />
+
+        <SettingItemCards
+          text="Help"
+          icon="help-circle-outline"
+          onPress={() => navigation.navigate('Help')}
+        />
+        <SettingItemCards
+          text="Invite your friends"
+          icon="email-outline"
+          onPress={() => navigation.navigate('Invite your friends')}
+        />
         <SettingItemCards
           text="Donate to signal"
           icon="heart-outline"
+          onPress={() => navigation.navigate('Donate to signal')}
           iconRight="external-link"
         />
       </ScrollView>
@@ -53,7 +97,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   profileCard: {
-    paddingVertical: 15,
+    paddingVertical: 20,
     flexDirection: 'row',
     alignItems: 'center',
   },

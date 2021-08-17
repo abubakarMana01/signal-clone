@@ -1,12 +1,16 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image, TouchableHighlight} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableNativeFeedback,
+} from 'react-native';
 import {colors} from '../constants';
 const ChatCardItem = ({user}) => {
   return (
-    <TouchableHighlight
-      delayLongPress={2}
-      activeOpacity={0.5}
-      underlayColor={colors.primary}
+    <TouchableNativeFeedback
+      background={TouchableNativeFeedback.Ripple(colors.primary, false)}
       onPress={() => {}}>
       <View style={styles.card}>
         <View style={styles.imageContainer}>
@@ -27,7 +31,7 @@ const ChatCardItem = ({user}) => {
           </View>
         </View>
       </View>
-    </TouchableHighlight>
+    </TouchableNativeFeedback>
   );
 };
 

@@ -7,6 +7,16 @@ import {useNavigation} from '@react-navigation/native';
 
 import SettingsScreen from '../screens/SettingsScreen';
 import HomeScreen from '../screens/HomeScreen';
+import AccountScreen from '../screens/AccountScreen';
+import LinkedDevicesScreen from '../screens/LinkedDevicesScreen';
+import ChatsSettingScreen from '../screens/ChatsSettingScreen';
+import AppearanceScreen from '../screens/AppearanceScreen';
+import PrivacyScreen from '../screens/PrivacyScreen';
+import NotificationsScreen from '../screens/NotificationsScreen';
+import DataAndStorageScreen from '../screens/DataAndStorageScreen';
+import HelpScreen from '../screens/HelpScreen';
+import InviteFriendsScreen from '../screens/InviteFriendsScreen';
+import DonateScreen from '../screens/DonateScreen';
 import {colors} from '../constants';
 
 const Stack = createStackNavigator();
@@ -61,6 +71,19 @@ const StackNavigator = () => {
         }}
       />
       <Stack.Screen component={SettingsScreen} name="Settings" />
+      <Stack.Screen component={AccountScreen} name="Account" />
+      <Stack.Screen component={LinkedDevicesScreen} name="Linked Devices" />
+      <Stack.Screen component={AppearanceScreen} name="Appearance" />
+      <Stack.Screen component={ChatsSettingScreen} name="Chats" />
+      <Stack.Screen component={NotificationsScreen} name="Notifications" />
+      <Stack.Screen component={PrivacyScreen} name="Privacy" />
+      <Stack.Screen component={DataAndStorageScreen} name="Data and Storage" />
+      <Stack.Screen component={HelpScreen} name="Help" />
+      <Stack.Screen
+        component={InviteFriendsScreen}
+        name="Invite your friends"
+      />
+      <Stack.Screen component={DonateScreen} name="Donate to signal" />
     </Stack.Navigator>
   );
 };

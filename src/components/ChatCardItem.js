@@ -10,7 +10,7 @@ import {colors} from '../constants';
 const ChatCardItem = ({user, lastMessage}) => {
   return (
     <TouchableNativeFeedback
-      background={TouchableNativeFeedback.Ripple(colors.primary, false)}
+      background={TouchableNativeFeedback.Ripple(colors.grey, false)}
       onPress={() => {}}>
       <View style={styles.card}>
         <View style={styles.imageContainer}>

@@ -7,7 +7,7 @@ import {colors} from '../constants';
 import ChatRoom from '../data/ChatRooms';
 import Users from '../data/Users';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <FlatList
@@ -20,6 +20,7 @@ const HomeScreen = () => {
       />
       <View style={styles.iconContainer}>
         <TouchableOpacity
+          onPress={() => navigation.navigate('Camera')}
           activeOpacity={0.8}
           style={{...styles.icon, backgroundColor: colors.light}}>
           <MaterialCommunityIcons name="camera" color={colors.grey} size={24} />

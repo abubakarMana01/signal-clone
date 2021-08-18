@@ -16,7 +16,6 @@ import NotificationsScreen from '../screens/NotificationsScreen';
 import DataAndStorageScreen from '../screens/DataAndStorageScreen';
 import HelpScreen from '../screens/HelpScreen';
 import InviteFriendsScreen from '../screens/InviteFriendsScreen';
-import DonateScreen from '../screens/DonateScreen';
 import {colors} from '../constants';
 
 const Stack = createStackNavigator();
@@ -28,7 +27,7 @@ const StackNavigator = () => {
     <Stack.Navigator
       initialRouteName="Home"
       screenOptions={{
-        headerStyle: {elevation: 1, shadowOpacity: 0},
+        headerStyle: {elevation: 0, shadowOpacity: 0},
         headerMode: 'float',
       }}>
       <Stack.Screen
@@ -77,13 +76,9 @@ const StackNavigator = () => {
       <Stack.Screen component={ChatsSettingScreen} name="Chats" />
       <Stack.Screen component={NotificationsScreen} name="Notifications" />
       <Stack.Screen component={PrivacyScreen} name="Privacy" />
-      <Stack.Screen component={DataAndStorageScreen} name="Data and Storage" />
+      <Stack.Screen component={DataAndStorageScreen} name="Data and storage" />
       <Stack.Screen component={HelpScreen} name="Help" />
-      <Stack.Screen
-        component={InviteFriendsScreen}
-        name="Invite your friends"
-      />
-      <Stack.Screen component={DonateScreen} name="Donate to signal" />
+      <Stack.Screen component={InviteFriendsScreen} name="Invite friends" />
     </Stack.Navigator>
   );
 };

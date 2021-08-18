@@ -6,6 +6,7 @@ import {
   TouchableNativeFeedback,
   ScrollView,
 } from 'react-native';
+import Separator from '../components/Separator';
 
 import SettingItemCards from '../components/SettingsItemCards';
 import {colors} from '../constants';
@@ -39,7 +40,7 @@ const SettingsScreen = ({navigation}) => {
           onPress={() => navigation.navigate('Linked Devices')}
         />
 
-        <View style={styles.separator} />
+        <Separator />
 
         <SettingItemCards
           text="Appearance"
@@ -67,7 +68,7 @@ const SettingsScreen = ({navigation}) => {
           onPress={() => navigation.navigate('Data and storage')}
         />
 
-        <View style={styles.separator} />
+        <Separator />
 
         <SettingItemCards
           text="Help"
@@ -77,12 +78,12 @@ const SettingsScreen = ({navigation}) => {
         <SettingItemCards
           text="Invite your friends"
           icon="email-outline"
-          onPress={() => navigation.navigate('Invite your friends')}
+          onPress={() => navigation.navigate('Invite friends')}
         />
         <SettingItemCards
           text="Donate to signal"
           icon="heart-outline"
-          onPress={() => navigation.navigate('Donate to signal')}
+          onPress={() => {}}
           iconRight="external-link"
         />
       </ScrollView>
@@ -126,10 +127,5 @@ const styles = StyleSheet.create({
   },
   phone: {
     color: colors.grey,
-  },
-  separator: {
-    borderTopColor: '#eee',
-    borderTopWidth: 2,
-    marginVertical: 20,
   },
 });

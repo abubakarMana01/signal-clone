@@ -1,14 +1,17 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {ScrollView} from 'react-native';
+
+import SettingOptions from '../components/SettingOptions';
 
 const AppearanceScreen = () => {
   return (
-    <View>
-      <Text>Appearance</Text>
-    </View>
+    <ScrollView>
+      <SettingOptions title="Theme" details="System default" />
+      <SettingOptions title="Chat color & wallpaper" />
+      <SettingOptions title="Message font size" details="Normal" />
+      <SettingOptions title="Language" details="System default" />
+    </ScrollView>
   );
 };
 
 export default AppearanceScreen;
-
-const styles = StyleSheet.create({});

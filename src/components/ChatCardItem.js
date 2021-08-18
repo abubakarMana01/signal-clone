@@ -7,7 +7,7 @@ import {
   TouchableNativeFeedback,
 } from 'react-native';
 import {colors} from '../constants';
-const ChatCardItem = ({user}) => {
+const ChatCardItem = ({user, lastMessage}) => {
   return (
     <TouchableNativeFeedback
       background={TouchableNativeFeedback.Ripple(colors.primary, false)}
@@ -21,11 +21,11 @@ const ChatCardItem = ({user}) => {
             <Text numberOfLines={1} style={styles.name}>
               {user.name}
             </Text>
-            <Text style={styles.time}>Wed</Text>
+            <Text style={styles.time}>{'Time'}</Text>
           </View>
           <View style={styles.infoBottom}>
             <Text numberOfLines={1} style={styles.lastMessage}>
-              Last message
+              {lastMessage.content}
             </Text>
             <Text style={styles.time}>1h</Text>
           </View>
@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
   time: {
     fontSize: 12,
     color: colors.grey,
+    marginLeft: 10,
   },
   lastMessage: {
     color: colors.grey,

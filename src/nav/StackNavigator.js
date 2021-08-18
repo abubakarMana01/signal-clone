@@ -34,7 +34,7 @@ const StackNavigator = () => {
         component={HomeScreen}
         name="Home"
         options={{
-          headerTitle: 'Signal',
+          headerTitle: 'Mi Messenger',
           headerTitleStyle: {fontWeight: '700'},
           headerLeft: () => (
             <TouchableWithoutFeedback

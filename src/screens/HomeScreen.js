@@ -1,9 +1,10 @@
 import React from 'react';
 import {FlatList, StyleSheet, TouchableOpacity, View} from 'react-native';
-
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import ChatCardItem from '../components/ChatCardItem';
 import {colors} from '../constants';
+import ChatRoom from '../data/ChatRooms';
 import Users from '../data/Users';
 
 const HomeScreen = () => {
@@ -11,7 +12,11 @@ const HomeScreen = () => {
     <View style={styles.container}>
       <FlatList
         data={Users}
-        renderItem={({item}) => <ChatCardItem user={item} />}
+        renderItem={({item}) => {
+          return (
+            <ChatCardItem lastMessage={ChatRoom[4].lastMessage} user={item} />
+          );
+        }}
       />
       <View style={styles.iconContainer}>
         <TouchableOpacity

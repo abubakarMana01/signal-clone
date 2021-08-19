@@ -7,7 +7,8 @@ import {
   TouchableNativeFeedback,
 } from 'react-native';
 import {colors} from '../constants';
-const ChatCardItem = ({user, lastMessage}) => {
+const ChatCardItem = ({chatRoom}) => {
+  const user = chatRoom.users[1];
   return (
     <TouchableNativeFeedback
       background={TouchableNativeFeedback.Ripple(colors.grey, false)}
@@ -21,13 +22,17 @@ const ChatCardItem = ({user, lastMessage}) => {
             <Text numberOfLines={1} style={styles.name}>
               {user.name}
             </Text>
-            <Text style={styles.time}>{'Time'}</Text>
+            <Text style={styles.time}>
+              {new Date(chatRoom.lastMessage.createdAt).toLocaleDateString()}
+            </Text>
           </View>
           <View style={styles.infoBottom}>
             <Text numberOfLines={1} style={styles.lastMessage}>
-              {lastMessage.content}
+              {chatRoom.lastMessage.content}
             </Text>
-            <Text style={styles.time}>1h</Text>
+            {parseInt(chatRoom.numberOfUnreadMessages) !== 0 && (
+              <Text style={styles.time}>1h</Text>
+            )}
           </View>
         </View>
       </View>

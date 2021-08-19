@@ -4,18 +4,16 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import ChatCardItem from '../components/ChatCardItem';
 import {colors} from '../constants';
-import ChatRoom from '../data/ChatRooms';
+import ChatRooms from '../data/ChatRooms';
 import Users from '../data/Users';
 
 const HomeScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <FlatList
-        data={Users}
+        data={ChatRooms}
         renderItem={({item}) => {
-          return (
-            <ChatCardItem lastMessage={ChatRoom[4].lastMessage} user={item} />
-          );
+          return <ChatCardItem chatRoom={item} />;
         }}
       />
       <View style={styles.iconContainer}>

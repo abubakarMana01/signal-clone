@@ -24,6 +24,7 @@ const HomeScreen = ({navigation}) => {
           <MaterialCommunityIcons name="camera" color={colors.grey} size={24} />
         </TouchableOpacity>
         <TouchableOpacity
+          onPress={() => navigation.navigate('New message')}
           activeOpacity={0.8}
           style={{...styles.icon, backgroundColor: colors.primary}}>
           <MaterialCommunityIcons

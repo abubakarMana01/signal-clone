@@ -18,6 +18,7 @@ import DataAndStorageScreen from '../screens/DataAndStorageScreen';
 import HelpScreen from '../screens/HelpScreen';
 import InviteFriendsScreen from '../screens/InviteFriendsScreen';
 import CameraScreen from '../screens/CameraScreen';
+import NewMessageScreen from '../screens/NewMessageScreen';
 
 const Stack = createStackNavigator();
 
@@ -29,6 +30,7 @@ const StackNavigator = () => {
       initialRouteName="Home"
       screenOptions={{
         headerStyle: {elevation: 0, shadowOpacity: 0},
+        headerMode: 'screen',
       }}>
       <Stack.Screen
         component={HomeScreen}
@@ -84,6 +86,7 @@ const StackNavigator = () => {
         name="Camera"
         options={{headerShown: false, headerMode: 'float'}}
       />
+      <Stack.Screen component={NewMessageScreen} name="New message" />
     </Stack.Navigator>
   );
 };

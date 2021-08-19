@@ -88,5 +88,6 @@ const styles = StyleSheet.create({
   lastMessage: {
     color: colors.grey,
     flex: 1,
+    maxWidth: '90%',
   },
 });

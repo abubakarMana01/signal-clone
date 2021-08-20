@@ -6,13 +6,18 @@ import {
   Image,
   TouchableNativeFeedback,
 } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+
+import Chats from '../data/Chats';
 import {colors} from '../constants';
+
 const ChatCardItem = ({chatRoom}) => {
+  const navigation = useNavigation();
   const user = chatRoom.users[1];
   return (
     <TouchableNativeFeedback
       background={TouchableNativeFeedback.Ripple(colors.grey, false)}
-      onPress={() => {}}>
+      onPress={() => navigation.navigate('Chat room', {Chats})}>
       <View style={styles.card}>
         <View style={styles.imageContainer}>
           <Image style={styles.image} source={{uri: user.imageUri}} />

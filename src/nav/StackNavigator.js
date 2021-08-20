@@ -1,5 +1,12 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableWithoutFeedback, View} from 'react-native';
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {useNavigation} from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -19,6 +26,7 @@ import HelpScreen from '../screens/HelpScreen';
 import InviteFriendsScreen from '../screens/InviteFriendsScreen';
 import CameraScreen from '../screens/CameraScreen';
 import NewMessageScreen from '../screens/NewMessageScreen';
+import ChatRoomScreen from '../screens/ChatRoomScreen';
 
 const Stack = createStackNavigator();
 
@@ -30,7 +38,7 @@ const StackNavigator = () => {
       initialRouteName="Home"
       screenOptions={{
         headerStyle: {elevation: 0, shadowOpacity: 0},
-        headerMode: 'screen',
+        headerMode: Platform.OS === 'ios' ? 'screen' : 'float',
       }}>
       <Stack.Screen
         component={HomeScreen}
@@ -41,17 +49,15 @@ const StackNavigator = () => {
           headerLeft: () => (
             <TouchableWithoutFeedback
               onPress={() => navigation.navigate('Settings')}>
-              <View style={styles.homeHeaderLeft}>
-                <Text style={styles.homeHeaderLeftText}>AM</Text>
+              <View style={styles.headerLeft}>
+                <Text style={styles.headerLeftText}>AM</Text>
               </View>
             </TouchableWithoutFeedback>
           ),
           headerRight: () => (
-            // eslint-disable-next-line react-native/no-inline-styles
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <TouchableWithoutFeedback onPress={() => {}}>
                 <Ionicons
-                  // eslint-disable-next-line react-native/no-inline-styles
                   style={{marginRight: 20}}
                   name="search-outline"
                   size={24}
@@ -60,7 +66,6 @@ const StackNavigator = () => {
               </TouchableWithoutFeedback>
               <TouchableWithoutFeedback onPress={() => {}}>
                 <MaterialCommunityIcons
-                  // eslint-disable-next-line react-native/no-inline-styles
                   style={{marginRight: 10}}
                   name="dots-vertical"
                   size={26}
@@ -69,6 +74,56 @@ const StackNavigator = () => {
               </TouchableWithoutFeedback>
             </View>
           ),
+        }}
+      />
+      <Stack.Screen
+        component={ChatRoomScreen}
+        name="Chat room"
+        options={({route}) => {
+          return {
+            headerTitle: route.params.Chats.users[1].name,
+            headerTitleStyle: {fontSize: 18},
+            headerBackImage: () => (
+              <View style={styles.chatRoomHeaderBackImage}>
+                <MaterialCommunityIcons
+                  name="arrow-left"
+                  size={30}
+                  color={colors.dark}
+                />
+                <View style={styles.headerLeft}>
+                  <Text style={styles.headerLeftText}>EM</Text>
+                </View>
+              </View>
+            ),
+            headerRight: () => (
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <TouchableWithoutFeedback onPress={() => {}}>
+                  <Ionicons
+                    style={{marginRight: 20}}
+                    name="videocam-outline"
+                    size={24}
+                    color="#424242"
+                  />
+                </TouchableWithoutFeedback>
+                <TouchableWithoutFeedback onPress={() => {}}>
+                  <Ionicons
+                    style={{marginRight: 20}}
+                    name="call-outline"
+                    size={22}
+                    color="#424242"
+                  />
+                </TouchableWithoutFeedback>
+                <TouchableWithoutFeedback onPress={() => {}}>
+                  <MaterialCommunityIcons
+                    style={{marginRight: 10}}
+                    name="dots-vertical"
+                    size={24}
+                    color="#424242"
+                  />
+                </TouchableWithoutFeedback>
+              </View>
+            ),
+          };
         }}
       />
       <Stack.Screen component={SettingsScreen} name="Settings" />
@@ -84,7 +139,7 @@ const StackNavigator = () => {
       <Stack.Screen
         component={CameraScreen}
         name="Camera"
-        options={{headerShown: false, headerMode: 'float'}}
+        options={{headerShown: false}}
       />
       <Stack.Screen component={NewMessageScreen} name="New message" />
     </Stack.Navigator>
@@ -94,7 +149,7 @@ const StackNavigator = () => {
 export default StackNavigator;
 
 const styles = StyleSheet.create({
-  homeHeaderLeft: {
+  headerLeft: {
     height: 27,
     width: 27,
     backgroundColor: '#d1e0ff',
@@ -105,9 +160,13 @@ const styles = StyleSheet.create({
     borderColor: '#bdd3ff',
     borderWidth: 1,
   },
-  homeHeaderLeftText: {
+  headerLeftText: {
     color: colors.primary,
     fontSize: 12,
     fontWeight: '700',
+  },
+  chatRoomHeaderBackImage: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });

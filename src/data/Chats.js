@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 export default {
   id: '1',
   users: [
@@ -72,6 +71,69 @@ export default {
     },
     {
       id: 'm7',
+      content: 'btw, SpaceX is interested in buying notJust.dev!',
+      createdAt: '2020-10-03T14:53:00.000Z',
+      user: {
+        id: 'u2',
+        name: 'Elon Musk',
+      },
+    },
+    {
+      id: 'm8',
+      content: 'Good as well, preparing for the stream now.',
+      createdAt: '2020-10-03T14:50:00.000Z',
+      user: {
+        id: 'u1',
+        name: 'Vadim',
+      },
+    },
+    {
+      id: 'm9',
+      content: 'How is SpaceX doing?',
+      createdAt: '2020-10-03T14:51:00.000Z',
+      user: {
+        id: 'u1',
+        name: 'Vadim',
+      },
+    },
+    {
+      id: 'm10',
+      content: 'going to the Moooooon',
+      createdAt: '2020-10-03T14:49:00.000Z',
+      user: {
+        id: 'u2',
+        name: 'Elon Musk',
+      },
+    },
+    {
+      id: 'm11',
+      content: 'btw, SpaceX is interested in buying notJust.dev!',
+      createdAt: '2020-10-03T14:53:00.000Z',
+      user: {
+        id: 'u2',
+        name: 'Elon Musk',
+      },
+    },
+    {
+      id: 'm12',
+      content: 'How is SpaceX doing?',
+      createdAt: '2020-10-03T14:51:00.000Z',
+      user: {
+        id: 'u1',
+        name: 'Vadim',
+      },
+    },
+    {
+      id: 'm13',
+      content: 'going to the Moooooon',
+      createdAt: '2020-10-03T14:49:00.000Z',
+      user: {
+        id: 'u2',
+        name: 'Elon Musk',
+      },
+    },
+    {
+      id: 'm14',
       content: 'btw, SpaceX is interested in buying notJust.dev!',
       createdAt: '2020-10-03T14:53:00.000Z',
       user: {

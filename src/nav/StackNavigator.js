@@ -82,12 +82,12 @@ const StackNavigator = () => {
         options={({route}) => {
           return {
             headerTitle: route.params.Chats.users[1].name,
-            headerTitleStyle: {fontSize: 18},
+            headerTitleStyle: {fontSize: 18, marginLeft: -15},
             headerBackImage: () => (
               <View style={styles.chatRoomHeaderBackImage}>
                 <MaterialCommunityIcons
                   name="arrow-left"
-                  size={30}
+                  size={24}
                   color={colors.dark}
                 />
                 <View style={styles.headerLeft}>
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 15,
-    marginLeft: 20,
+    marginLeft: 15,
     borderColor: '#bdd3ff',
     borderWidth: 1,
   },

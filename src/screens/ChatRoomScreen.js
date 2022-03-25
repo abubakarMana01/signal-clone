@@ -13,7 +13,7 @@ const ChatRoomScreen = () => {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         data={route.params.Chats.messages}
         ListFooterComponent={() => <View style={{marginBottom: 50}} />}
@@ -56,6 +56,10 @@ const ChatRoomScreen = () => {
 export default ChatRoomScreen;
 
 const styles = StyleSheet.create({
+  container: {
+    justifyContent: 'space-between',
+    flex: 1,
+  },
   card: {
     marginVertical: 3,
     padding: 10,

@@ -1,46 +1,74 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, TextInput, View, TouchableOpacity} from 'react-native';
+import EmojiSelector from 'react-native-emoji-selector';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import {colors} from '../constants';
 
 const ChatMessageInput = () => {
+  const [isEmojiPickerOpen, setIsEmojiPickerOpen] = useState(false);
+  const [message, setMessage] = useState('');
+
   return (
-    <View style={styles.container}>
-      <View style={styles.inputContainer}>
-        <TouchableOpacity activeOpacity={0.7}>
-          <FontAwesome
-            name="smile-o"
-            style={styles.icon}
-            size={26}
-            color={colors.grey}
+    <View
+      style={[styles.wrapper, {height: isEmojiPickerOpen ? '50%' : 'auto'}]}>
+      <View style={styles.container}>
+        <View style={styles.inputContainer}>
+          <TouchableOpacity
+            activeOpacity={0.7}
+            onPress={() => setIsEmojiPickerOpen(!isEmojiPickerOpen)}>
+            <FontAwesome
+              name="smile-o"
+              style={styles.icon}
+              size={26}
+              color={colors.grey}
+            />
+          </TouchableOpacity>
+          <TextInput
+            style={styles.textInput}
+            placeholder="Signal message"
+            value={message}
+            onChangeText={setMessage}
           />
-        </TouchableOpacity>
-        <TextInput style={styles.textInput} placeholder="Signal message" />
-        <TouchableOpacity activeOpacity={0.7}>
+          <TouchableOpacity activeOpacity={0.7}>
+            <MaterialCommunityIcons
+              style={styles.icon}
+              name="camera-outline"
+              size={26}
+              color={colors.grey}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity activeOpacity={0.7}>
+            <MaterialCommunityIcons
+              style={styles.icon}
+              name="microphone-outline"
+              size={26}
+              color={colors.grey}
+            />
+          </TouchableOpacity>
+        </View>
+        <TouchableOpacity
+          activeOpacity={0.7}
+          color={colors.grey}
+          style={styles.plusContainer}>
           <MaterialCommunityIcons
-            style={styles.icon}
-            name="camera-outline"
-            size={26}
-            color={colors.grey}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity activeOpacity={0.7}>
-          <MaterialCommunityIcons
-            style={styles.icon}
-            name="microphone-outline"
-            size={26}
-            color={colors.grey}
+            name={message ? 'send' : 'plus'}
+            size={message ? 22 : 26}
+            color={colors.light}
           />
         </TouchableOpacity>
       </View>
-      <TouchableOpacity
-        activeOpacity={0.7}
-        color={colors.grey}
-        style={styles.plusContainer}>
-        <MaterialCommunityIcons name="plus" size={26} color={colors.light} />
-      </TouchableOpacity>
+      {isEmojiPickerOpen && (
+        <EmojiSelector
+          showSearchBar={false}
+          showHistory
+          onEmojiSelected={emoji =>
+            setMessage(currentMessage => currentMessage + emoji)
+          }
+          columns={12}
+        />
+      )}
     </View>
   );
 };
@@ -48,11 +76,9 @@ const ChatMessageInput = () => {
 export default ChatMessageInput;
 
 const styles = StyleSheet.create({
+  wrapper: {},
   container: {
     backgroundColor: colors.light,
-    position: 'absolute',
-    bottom: 0,
-    width: '100%',
     flexDirection: 'row',
     paddingHorizontal: 10,
     paddingVertical: 5,

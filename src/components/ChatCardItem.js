@@ -16,7 +16,7 @@ const ChatCardItem = ({chatRoom}) => {
   const user = chatRoom.users[1];
   return (
     <TouchableNativeFeedback
-      background={TouchableNativeFeedback.Ripple(colors.grey, false)}
+      background={TouchableNativeFeedback.Ripple('#eee', false)}
       onPress={() => navigation.navigate('Chat room', {Chats})}>
       <View style={styles.card}>
         <View style={styles.imageContainer}>

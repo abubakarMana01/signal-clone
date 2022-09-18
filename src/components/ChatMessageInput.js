@@ -27,7 +27,7 @@ const ChatMessageInput = () => {
           </TouchableOpacity>
           <TextInput
             style={styles.textInput}
-            placeholder="Signal message"
+            placeholder="Your message..."
             value={message}
             onChangeText={setMessage}
           />

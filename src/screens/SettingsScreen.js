@@ -23,7 +23,7 @@ const SettingsScreen = ({navigation}) => {
           </View>
           <View style={styles.profileCardRight}>
             <Text style={styles.profileName}>Abubakar Mana</Text>
-            <Text style={styles.phone}>+234 808 281 3527</Text>
+            <Text style={styles.phone}>+234 808 431 8321</Text>
           </View>
         </View>
       </TouchableNativeFeedback>

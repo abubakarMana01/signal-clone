@@ -1,9 +1,9 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {
   Platform,
   StyleSheet,
   Text,
-  TouchableOpacity,
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
@@ -39,6 +39,7 @@ const StackNavigator = () => {
       screenOptions={{
         headerStyle: {elevation: 0, shadowOpacity: 0},
         headerMode: Platform.OS === 'ios' ? 'screen' : 'float',
+        headerBackTitle: 'Back',
       }}>
       <Stack.Screen
         component={HomeScreen}
@@ -49,7 +50,7 @@ const StackNavigator = () => {
           headerLeft: () => (
             <TouchableWithoutFeedback
               onPress={() => navigation.navigate('Settings')}>
-              <View style={styles.headerLeft}>
+              <View style={[styles.headerLeft, {marginLeft: 12}]}>
                 <Text style={styles.headerLeftText}>AM</Text>
               </View>
             </TouchableWithoutFeedback>
@@ -81,25 +82,41 @@ const StackNavigator = () => {
         name="Chat room"
         options={({route}) => {
           return {
-            headerTitle: route.params.Chats.users[1].name,
-            headerTitleStyle: {fontSize: 18, marginLeft: -15},
-            headerBackImage: () => (
-              <View style={styles.chatRoomHeaderBackImage}>
-                <MaterialCommunityIcons
-                  name="arrow-left"
-                  size={24}
-                  color={colors.dark}
-                />
-                <View style={styles.headerLeft}>
-                  <Text style={styles.headerLeftText}>EM</Text>
+            headerTitle: Platform.select({
+              ios: route.params.Chats.users[1].name,
+              android: ({style}) => (
+                <View
+                  style={[
+                    style,
+                    {
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                    },
+                  ]}>
+                  <View style={styles.headerLeft}>
+                    <Text style={styles.headerLeftText}>PD</Text>
+                  </View>
+                  <Text
+                    style={{
+                      fontSize: style.fontSize,
+                      fontWeight: style.fontWeight,
+                      marginLeft: 10,
+                    }}>
+                    {route.params.Chats.users[1].name}
+                  </Text>
                 </View>
-              </View>
-            ),
+              ),
+            }),
+            headerTitleStyle: {
+              fontSize: 18,
+              fontWeight: '700',
+            },
+            headerBackTitle: 'Chats',
             headerRight: () => (
               <View style={{flexDirection: 'row', alignItems: 'center'}}>
                 <TouchableWithoutFeedback onPress={() => {}}>
                   <Ionicons
-                    style={{marginRight: 20}}
+                    style={{marginRight: 15}}
                     name="videocam-outline"
                     size={24}
                     color="#424242"
@@ -107,7 +124,7 @@ const StackNavigator = () => {
                 </TouchableWithoutFeedback>
                 <TouchableWithoutFeedback onPress={() => {}}>
                   <Ionicons
-                    style={{marginRight: 20}}
+                    style={{marginRight: 15}}
                     name="call-outline"
                     size={22}
                     color="#424242"
@@ -156,7 +173,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 15,
-    marginLeft: 15,
     borderColor: '#bdd3ff',
     borderWidth: 1,
   },

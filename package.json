@@ -8,7 +8,14 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "fix-lint": "eslint . --fix"
+    "fix-lint": "eslint . --fix",
+    "pod": "cd ios && pod install && cd ..",
+    "debugAPK": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && cd android && ./gradlew assembleDebug && cd ..",
+    "clean:npm": "rm -rf node_modules && rm -rf package-lock.json && npm install --legacy-peer-deps",
+    "clean:ios": "cd ios && rm -rf Pods && rm -rf Podfile.lock && rm -rf Kwimart.xcworkspace && pod install && cd ..",
+    "clean:android": "cd android && rm -rf .gradle && ./gradlew clean  && cd ..",
+    "clean:watchman": "watchman watch-del-all",
+    "clean:start": "react-native start --reset-cache"
   },
   "dependencies": {
     "@react-navigation/native": "^6.0.2",

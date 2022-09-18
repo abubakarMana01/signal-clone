@@ -38,7 +38,6 @@ const ChatRoomScreen = () => {
                 styles.time,
                 {
                   color: !isMyMessage(item) ? colors.grey : '#ffffff99',
-                  alignSelf: isMyMessage(item) ? 'flex-end' : 'flex-start',
                 },
               ]}>
               {new Date(item.createdAt).getHours() +
@@ -63,6 +62,7 @@ const styles = StyleSheet.create({
   card: {
     marginVertical: 3,
     padding: 10,
+    paddingBottom: 7,
     borderRadius: 15,
     marginHorizontal: 10,
     maxWidth: '80%',
@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
   },
   time: {
     fontSize: 12,
-    marginTop: 5,
+    marginTop: 3,
+    alignSelf: 'flex-end',
   },
 });
